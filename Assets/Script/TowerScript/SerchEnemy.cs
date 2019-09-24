@@ -32,7 +32,7 @@ public class SerchEnemy : MonoBehaviour
         }
       
     }
-    
+
     void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.CompareTag(TargetTagname))

@@ -235,8 +235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc16a1a1d988524ba252e279a0c53b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ariaHit: {fileID: 0}
-  slider: {fileID: 0}
+  ariaHit: {fileID: 7462987173135917212}
+  slider: {fileID: 8247681057456744603}
 --- !u!1001 &5758286219010635574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -429,3 +429,15 @@ Canvas:
     type: 3}
   m_PrefabInstance: {fileID: 5758286219010635574}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8247681057456744603 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4439472776164319149, guid: 0b09420cf69ceeb428ccd3f4629c64cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 5758286219010635574}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

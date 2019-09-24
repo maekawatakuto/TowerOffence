@@ -25,7 +25,10 @@ public class LazerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
+        if (serchEnemy.TargetObj==null)
+        {
+
+        }
         if (serchEnemy.Find)
         {
             lineRenderer.SetPosition(1,serchEnemy.TargetObj.transform.position);

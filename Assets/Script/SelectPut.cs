@@ -18,7 +18,7 @@ public class SelectPut : MonoBehaviour
     int width;
     int depth;
     int node;
-    void Start()
+    void Awake()
     {
         north = new List<int>();
         south = new List<int>();
@@ -74,7 +74,7 @@ public class SelectPut : MonoBehaviour
     
     }
 
-    // Update is called once per frame
+    
 
     void Update()
     {

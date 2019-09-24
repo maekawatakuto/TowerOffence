@@ -21,7 +21,7 @@ public class JsonRequest : MonoBehaviour
         WWW www = new WWW($"file://{path}/charactorList.json");
         yield return www;
         string jsontText = www.text;
-        Debug.Log(jsontText);
+
         CharactorScript charactor = JsonUtility.FromJson<CharactorScript>(jsontText);//読み込み
         foreach (var chara in charactor.charactor_list)
         {
