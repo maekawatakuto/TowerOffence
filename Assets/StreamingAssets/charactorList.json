@@ -1,0 +1,32 @@
+{
+  "charactor_list": [
+    {
+      "name": "soldier",
+      "STR": 15,
+      "DEF": 10,
+      "HP": 100,
+      "AS": 2
+    },
+    {
+      "name": "thief",
+      "STR": 20,
+      "DEF": 5,
+      "HP": 50,
+      "AS": 3
+    }
+  ],
+  "object_list": [
+    {
+      "name": "Base",
+      "STR": 0,
+      "HP": 450,
+        "AS": 0
+    },
+    {
+      "name": "Tower",
+      "STR": 5,
+      "HP": 0,
+        "AS": 0.5
+    }
+  ]
+}
