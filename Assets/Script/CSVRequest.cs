@@ -5,7 +5,7 @@ using System.IO;
 public class CSVRequest : MonoBehaviour
 {
     TextAsset csvFile;
-    [SerializeField]
+    
     private string CsvTextName;
     private int width;
     public int WIDTH//値が入った時-1
@@ -39,6 +39,7 @@ public class CSVRequest : MonoBehaviour
     public List<string[]> csvDatas = new List<string[]>(); // CSVの中身を入れるリスト;
     void Awake()
     {
+        CsvTextName = StageManager.Instance.StageName;
         WIDTH = 18;
         DEPTH = 6;
         csvFile = Resources.Load(CsvTextName)as TextAsset;//Resource下のcsv読み込み

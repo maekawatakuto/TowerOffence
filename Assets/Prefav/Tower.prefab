@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tower: {fileID: 6616014575657414204}
-  serchEnemy: {fileID: 8458817516885105298}
+  serchEnemy: {fileID: 1889812780146279897}
 --- !u!1 &6616014575657414204
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370983d83b250aa4db89138acdfbcbff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serchEnemy: {fileID: 8458817516885105298}
+  serchEnemy: {fileID: 1889812780146279897}
 --- !u!1 &6616014579852357366
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,8 +265,8 @@ GameObject:
   m_Component:
   - component: {fileID: 101769918213529030}
   - component: {fileID: 8597651478992242347}
-  - component: {fileID: 8458817516885105298}
   - component: {fileID: 3225987200489723375}
+  - component: {fileID: 1889812780146279897}
   m_Layer: 0
   m_Name: SerchCircle
   m_TagString: Untagged
@@ -301,21 +301,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 2, z: 10}
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &8458817516885105298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9150108202958049846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd6705725853d6046a7c6b1092026ac4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lazerScript: {fileID: 8008572432973076050}
-  Find: 0
-  TargetTagname: Thief
 --- !u!208 &3225987200489723375
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -332,6 +317,20 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1889812780146279897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9150108202958049846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4583691282b16aa439d1a0e30f1f5e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Find: 0
+  TargetTagname: Thief
 --- !u!1001 &6184785787825092122
 PrefabInstance:
   m_ObjectHideFlags: 0

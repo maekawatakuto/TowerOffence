@@ -2,34 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class SoldierMnager : MonoBehaviour
+public class Soldier: UnitStatus
 {
     JsonRequest request;
     [SerializeField]
     AriaHit ariaHit;
     [SerializeField]
     Slider slider;
-    ThiefManager thiefManager;
-    public int STR { get; set; }
-    public int HP { get; set; }
-    public string Name { get; set; }
-    public float AS { get; set;}
+    Thief thiefManager;
+
+  /*  public int STR;
+    public int HP;
+    public string Name;
+    public float AS;*/
     private float timer;//攻撃タイマー
     private bool one;//一度だけ実行
+    
     void Start()
     {
+       
         one = false;
         request = GameObject.Find("JsonObject").GetComponent<JsonRequest>();
         StartCoroutine(UpdateStatus());
        
     }
-    private void Update()
+    private void LateUpdate()
     {
         if (ariaHit.Find)
         {
+            
             if (!one)
             {
-                thiefManager = ariaHit.TargetObj.GetComponent<ThiefManager>();
+                thiefManager = ariaHit.TargetObj.GetComponent<Thief>();
                 one = true;
             }
             timer += Time.deltaTime;
@@ -38,16 +42,26 @@ public class SoldierMnager : MonoBehaviour
                 thiefManager.HP -= STR;
                 timer = 0;
             }
-            if (HP <= 0)//0になると自身が消滅
-            {
-                Destroy(gameObject);
+            if (thiefManager.HP <= 0)
+            {//敵をたおしたら探索をやめる
+               
+                one = false;
+                ariaHit.Find = false;
+
             }
         }
         else if (!ariaHit.Find)
         {
+           
             one = false;
             thiefManager = null;//敵を見失ったときリセットする
         }
+        if (slider.value <= 0)//0になると自身が消滅
+        {
+            Destroy(gameObject);
+
+        }
+       
         slider.value = HP;//常にUIへ更新
      
     }

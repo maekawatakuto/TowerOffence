@@ -62,13 +62,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CSVRequest.cs" />
     <Compile Include="Assets\Script\AriaHit.cs" />
     <Compile Include="Assets\Script\BakeSystem.cs" />
     <Compile Include="Assets\Script\BaseCenter.cs" />
     <Compile Include="Assets\Script\BaseHit.cs" />
     <Compile Include="Assets\Script\CameraControl.cs" />
     <Compile Include="Assets\Script\CameraDirection.cs" />
+    <Compile Include="Assets\Script\CSVRequest.cs" />
     <Compile Include="Assets\Script\EnemyMoveScript.cs" />
     <Compile Include="Assets\Script\Field\CreateField.cs" />
     <Compile Include="Assets\Script\Jsonfolder\CharactorScript.cs" />
@@ -76,14 +76,20 @@
     <Compile Include="Assets\Script\NavBakeSystem.cs" />
     <Compile Include="Assets\Script\SceneScript.cs" />
     <Compile Include="Assets\Script\SelectPut.cs" />
-    <Compile Include="Assets\Script\SoldierMnager.cs" />
+    <Compile Include="Assets\Script\SingletonMonoBehaviour.cs" />
+    <Compile Include="Assets\Script\Soldier.cs" />
     <Compile Include="Assets\Script\soldierMoveScript.cs" />
+    <Compile Include="Assets\Script\StageManager.cs" />
     <Compile Include="Assets\Script\StageSelectScript.cs" />
     <Compile Include="Assets\Script\StatusReference.cs" />
-    <Compile Include="Assets\Script\ThiefManager.cs" />
+    <Compile Include="Assets\Script\StockScript.cs" />
+    <Compile Include="Assets\Script\TestClass.cs" />
+    <Compile Include="Assets\Script\Thief.cs" />
+    <Compile Include="Assets\Script\TIMERscript.cs" />
+    <Compile Include="Assets\Script\TowerManager.cs" />
     <Compile Include="Assets\Script\TowerScript\LazerScript.cs" />
-    <Compile Include="Assets\Script\TowerScript\SerchEnemy.cs" />
-    <Compile Include="Assets\TowerManager.cs" />
+    <Compile Include="Assets\Script\UIManager.cs" />
+    <Compile Include="Assets\Script\UnitStatus.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

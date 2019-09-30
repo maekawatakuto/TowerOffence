@@ -5,14 +5,14 @@
       "STR": 15,
       "DEF": 10,
       "HP": 100,
-      "AS": 2
+      "AS": 1
     },
     {
       "name": "thief",
-      "STR": 20,
+      "STR": 10,
       "DEF": 5,
       "HP": 50,
-      "AS": 3
+      "AS": 1.5
     }
   ],
   "object_list": [

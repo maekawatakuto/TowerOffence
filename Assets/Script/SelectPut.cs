@@ -8,7 +8,8 @@ public class SelectPut : MonoBehaviour
    private CreateField createField;
     [SerializeField]
     private GameObject prefav;
-    
+    [SerializeField]
+    StockScript stockScript;
     public List<int> north { get; private set; }
     public List<int> south { get; private set; }
     public List<int> east { get; private set; }
@@ -18,7 +19,8 @@ public class SelectPut : MonoBehaviour
     int width;
     int depth;
     int node;
-    void Awake()
+    private float timer;
+    void Start()
     {
         north = new List<int>();
         south = new List<int>();
@@ -26,6 +28,12 @@ public class SelectPut : MonoBehaviour
         west = new List<int>();
         targetList = new List<GameObject>();
         node = 0;
+        StartCoroutine(Coroutine());
+    
+    }
+    IEnumerator Coroutine()
+    {
+        yield return createField.fieldObj;//fieldが生成されるまで待機
         width = createField.Width;
         depth = createField.Depth;
 
@@ -36,9 +44,9 @@ public class SelectPut : MonoBehaviour
             string str = i.ToString();
             GameObject target = GameObject.Find(str);
             targetList.Add(target);
-              Renderer renderer = target.GetComponent<Renderer>();
-              renderer.material.color = new Color(0, 0, 1);
-           
+            Renderer renderer = target.GetComponent<Renderer>();
+            renderer.material.color = new Color(0, 0, 1);
+
         }
         for (int i = 1; i <= width; i++)//東
         {
@@ -47,8 +55,8 @@ public class SelectPut : MonoBehaviour
             string str = i1.ToString();
             GameObject target = GameObject.Find(str);
             targetList.Add(target);
-           Renderer renderer = target.GetComponent<Renderer>();
-           renderer.material.color = new Color(0, 0, 1);
+            Renderer renderer = target.GetComponent<Renderer>();
+            renderer.material.color = new Color(0, 0, 1);
         }
         for (int i = width * depth - 1; i > width * (depth - 1); i--)//南
         {
@@ -56,8 +64,8 @@ public class SelectPut : MonoBehaviour
             string str = i.ToString();
             GameObject target = GameObject.Find(str);
             targetList.Add(target);
-           Renderer renderer = target.GetComponent<Renderer>();
-           renderer.material.color = new Color(0, 0, 1);
+            Renderer renderer = target.GetComponent<Renderer>();
+            renderer.material.color = new Color(0, 0, 1);
         }
 
         for (int i = depth - 1; i >= 1; i--)//西
@@ -68,17 +76,16 @@ public class SelectPut : MonoBehaviour
             string str = i1.ToString();
             GameObject target = GameObject.Find(str);
             targetList.Add(target);
-           Renderer renderer = target.GetComponent<Renderer>();
+            Renderer renderer = target.GetComponent<Renderer>();
             renderer.material.color = new Color(0, 0, 1);
         }
-    
     }
-
     
 
     void Update()
     {
-        if (Input.GetKeyDown("6"))
+        timer += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.A))
         {
             node += 1;
         
@@ -91,7 +98,7 @@ public class SelectPut : MonoBehaviour
             ChangeSelecetColor();
 
         }
-        if (Input.GetKeyDown("4"))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             node -= 1;     
             if (node < 0)
@@ -105,9 +112,15 @@ public class SelectPut : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)&&timer>=0.5f)//連打できないようにする
         {
-            InstanceNPC(prefav);
+            timer = 0;
+            if (stockScript.stk > 0)
+            {
+                stockScript.stk -= 1;
+                InstanceNPC(prefav);
+            }
+            
         }
 
 

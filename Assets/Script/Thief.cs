@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class ThiefManager : MonoBehaviour
+public class Thief : UnitStatus
 {
     GameObject BaseObject;
     JsonRequest request;
     StatusReference statusReference;
-    SoldierMnager soldierManager;
+    Soldier soldierManager;
     [SerializeField]
     AriaHit ariaHit;
     [SerializeField]
@@ -15,13 +15,15 @@ public class ThiefManager : MonoBehaviour
     [SerializeField]
     Slider slider;
     private float time;//攻撃タイマー
-    public int HP { get; set;}
-    public int STR { get; set; }
-    public float AS { get; set; }
-    public string Name { get; set; }
+   
     bool one;//一度だけ実行
+    private void Awake()
+    {
+        
+    }
     void Start()
     {
+        HP = 1;
         one = false;
         request = GameObject.Find("JsonObject").GetComponent<JsonRequest>();
         BaseObject = GameObject.Find("拠点");
@@ -47,27 +49,34 @@ public class ThiefManager : MonoBehaviour
         {
             if (!one)
             {
-                soldierManager = ariaHit.TargetObj.GetComponent<SoldierMnager>();//敵のステータスを参照
+
+                soldierManager = ariaHit.TargetObj.GetComponent<Soldier>();//敵のステータスを参照
                 one = true;
             }
+            Debug.Log(soldierManager);
             time += Time.deltaTime;
             if (time > AS)
             {
                 soldierManager.HP -= STR;
                 time = 0;
             }
-            if (HP <= 0)//hpが0の時消滅する
+            if (soldierManager.HP <= 0)//敵のｈPがなくなったらfindをリセット＆敵の情報をリセット
             {
-                Destroy(gameObject);
+                ariaHit.Find = false;
+                
             }
+           
         }
-        else if (!ariaHit.Find)
+       else if (!ariaHit.Find)
         {
+            soldierManager = null;
             one = false;
-            soldierManager = null;//敵を見失ったときリセットする
         }
         slider.value = HP;
-     
+        if (slider.value <= 0)//hpが0の時消滅する
+        {
+            Destroy(gameObject);
+        }
     }
     IEnumerator UpdateStatus()//jsonの値を変数に入れなおす
     {

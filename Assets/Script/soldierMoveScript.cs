@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.AI;
 public class soldierMoveScript : MonoBehaviour
 {
+    
     [SerializeField]
     NavMeshAgent agent;
     Vector3 respawnPosition;
     [SerializeField]
     AriaHit ariaHit;
+    GameObject saveObj;
     Vector3 targetposition;
     void Awake()
     {
@@ -20,6 +22,7 @@ public class soldierMoveScript : MonoBehaviour
     {
         if (ariaHit.Find)
         {
+           
             if (ariaHit.TargetObj == null)//hitしたオブジェクトがないとき初期の位置に戻る
             {
                 ariaHit.Find = false;
@@ -31,7 +34,11 @@ public class soldierMoveScript : MonoBehaviour
               
                 agent.SetDestination(targetposition);
             }
+            
         }
-       
+       else if (!ariaHit.Find)
+        {
+            agent.SetDestination(respawnPosition);
+        }
     }
 }

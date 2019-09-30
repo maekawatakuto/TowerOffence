@@ -9,5 +9,6 @@ public class SceneScript : MonoBehaviour
     {
         
         SceneManager.LoadScene(1);
+        DontDestroyOnLoad(gameObject);
     }
 }

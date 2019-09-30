@@ -9,7 +9,7 @@ public class LazerScript : MonoBehaviour
     
     private LineRenderer lineRenderer;
     [SerializeField]
-    private SerchEnemy serchEnemy;
+    private AriaHit serchEnemy;
     
     private float targetPosition;
     Vector3 Offset;
@@ -27,7 +27,7 @@ public class LazerScript : MonoBehaviour
     {
         if (serchEnemy.TargetObj==null)
         {
-
+            serchEnemy.Find = false;//見つからなかったら光線を切る
         }
         if (serchEnemy.Find)
         {

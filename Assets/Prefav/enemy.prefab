@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6851131234067914428}
   - component: {fileID: 6598100030255805005}
   - component: {fileID: 5455756686200054868}
+  - component: {fileID: 2714684308016010793}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Soldier
@@ -134,6 +135,24 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2714684308016010793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337973614681939353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc16a1a1d988524ba252e279a0c53b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ariaHit: {fileID: 7462987173135917212}
+  slider: {fileID: 8247681057456744603}
+  STR: 0
+  HP: 0
+  Name: 
+  AS: 0
 --- !u!114 &5490329723320399430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +178,6 @@ GameObject:
   - component: {fileID: 1258554457087355422}
   - component: {fileID: 7462987173135917212}
   - component: {fileID: 6937863472005576617}
-  - component: {fileID: 4795103392851662157}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -223,20 +241,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 5455756686200054868}
   ariaHit: {fileID: 7462987173135917212}
---- !u!114 &4795103392851662157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8165831422843341526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbc16a1a1d988524ba252e279a0c53b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ariaHit: {fileID: 7462987173135917212}
-  slider: {fileID: 8247681057456744603}
 --- !u!1001 &5758286219010635574
 PrefabInstance:
   m_ObjectHideFlags: 0

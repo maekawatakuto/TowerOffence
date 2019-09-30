@@ -6,8 +6,8 @@ public class TowerManager : MonoBehaviour
 {
     JsonRequest request;
     [SerializeField]
-    SerchEnemy serchEnemy;
-    ThiefManager thiefManager;
+    AriaHit serchEnemy;
+    Thief thiefManager;
     public int STR { get; set; }
     public string Name { get; set; }
     public float AS { get; set;}
@@ -28,7 +28,7 @@ public class TowerManager : MonoBehaviour
             if (!one)
             {
                 one = true;
-                thiefManager = serchEnemy.TargetObj.GetComponent<ThiefManager>();
+                thiefManager = serchEnemy.TargetObj.GetComponent<Thief>();
             }
             timer += Time.deltaTime;
             if (timer >= AS)

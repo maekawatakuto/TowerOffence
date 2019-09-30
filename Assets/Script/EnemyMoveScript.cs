@@ -17,11 +17,11 @@ public class EnemyMoveScript : MonoBehaviour
     Vector3 targetposition;
     Vector3 tar;
 
-    bool one1 = false;
+    bool one;
     // Start is called before the first frame update
     void Start()
     {
-
+        one = false;
         obj = new GameObject[4];
         distans = new float[4];
         savedistans = new float[4];
@@ -44,18 +44,19 @@ public class EnemyMoveScript : MonoBehaviour
             if (distans[3] == savedistans[i])
             {
                 targetposition = obj[i].transform.position;
-                m_navAgent.SetDestination(obj[i].transform.position);//拠点の方向に進む
-
+                
+                    m_navAgent.SetDestination(obj[i].transform.position);//拠点の方向に進む
+                   
             }
         }
 
 
     }
-
+    
     private void FixedUpdate()
     {
-        if (ariaHit.Find)
-        {
+      //  if (ariaHit.Find)
+       // {
             if (ariaHit.TargetObj == null)
             {
                 for (int i = 0; i < 4; i++)
@@ -69,23 +70,29 @@ public class EnemyMoveScript : MonoBehaviour
 
                     if (distans[3] == savedistans[i])
                     {
+                        
                         targetposition = obj[i].transform.position;
-                        m_navAgent.SetDestination(obj[i].transform.position);//拠点の方向に進む
-
+                        if (!one)
+                        {
+                            m_navAgent.SetDestination(obj[i].transform.position);//拠点の方向に進む
+                            one = true;
+                        }
                     }
                 }
                 ariaHit.Find = false;
             }
             else if (ariaHit.TargetObj != null)
             {
+                one = false;
                 targetposition = ariaHit.TargetObj.transform.position;
                 tar = this.transform.position - targetposition;
                 dis = tar.sqrMagnitude;//targetと敵の距離のべき乗
                 m_navAgent.SetDestination(targetposition);
-                Debug.Log(targetposition);
+
             }
-        }
+        //}
     }
+
     void BubbleSort(ref float[] a)
     {
         bool isEnd = false;

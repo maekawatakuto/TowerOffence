@@ -46,18 +46,18 @@ public class CreateField : MonoBehaviour
     IEnumerator request()
     {
         yield return csv.csvDatas;
-        Debug.Log(csv.csvDatas[5][17]);
+        
         for (int i = 0; i < Depth; i++)
         {
            for (int j = 0; j < Width; j++)
             {
                
-                if (csv.csvDatas[i][j] =="1")
+                if (csv.csvDatas[i][j] =="1")//1だった場合タワーを配置
                 {
                     GameObject Obj = Instantiate(TowerPrefav, CSVarray[i, j].transform.position, Quaternion.identity);
                   //  Debug.Log(CSVarray[i, j]);
                 }
-                if(csv.csvDatas[i][j]=="2")
+                if(csv.csvDatas[i][j]=="2")//2だった場合兵士を配置
                 {
                     GameObject obj = Instantiate(SoldierPrefav, CSVarray[i, j].transform.position, Quaternion.identity);
                 }
