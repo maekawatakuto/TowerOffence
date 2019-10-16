@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tower: {fileID: 6616014575657414204}
-  serchEnemy: {fileID: 1889812780146279897}
+  serchEnemy: {fileID: 4687312568677778253}
 --- !u!1 &6616014575657414204
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370983d83b250aa4db89138acdfbcbff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serchEnemy: {fileID: 1889812780146279897}
+  serchEnemy: {fileID: 4687312568677778253}
 --- !u!1 &6616014579852357366
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 101769918213529030}
   - component: {fileID: 8597651478992242347}
   - component: {fileID: 3225987200489723375}
-  - component: {fileID: 1889812780146279897}
+  - component: {fileID: 4687312568677778253}
   m_Layer: 0
   m_Name: SerchCircle
   m_TagString: Untagged
@@ -317,7 +317,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &1889812780146279897
+--- !u!114 &4687312568677778253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9150108202958049846}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4583691282b16aa439d1a0e30f1f5e87, type: 3}
+  m_Script: {fileID: 11500000, guid: 48cacca196517234b9ea2fad33166b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Find: 0
@@ -338,11 +338,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6619577085252076284}
     m_Modifications:
-    - target: {fileID: 1672103302908566499, guid: 4fa11a07d9ac66342972c19e15261e63,
-        type: 3}
-      propertyPath: m_Name
-      value: Lazer
-      objectReference: {fileID: 0}
     - target: {fileID: 8965171304496395395, guid: 4fa11a07d9ac66342972c19e15261e63,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -397,6 +392,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1672103302908566499, guid: 4fa11a07d9ac66342972c19e15261e63,
+        type: 3}
+      propertyPath: m_Name
+      value: Lazer
       objectReference: {fileID: 0}
     - target: {fileID: 8684911210765229067, guid: 4fa11a07d9ac66342972c19e15261e63,
         type: 3}

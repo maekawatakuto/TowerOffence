@@ -711,11 +711,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b5ce6cc2f49d341a4e31a9b2b41b35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  field: {fileID: 2836483454025074049, guid: 1def2d5b4b485874e93ce30b1c2005fb, type: 3}
   TowerPrefav: {fileID: 6616014575657414204, guid: a761f5e31d84b1b4196789da69cdd920,
     type: 3}
   SoldierPrefav: {fileID: 337973614681939353, guid: e9ee270e18c52894092283ea6ab103da,
     type: 3}
-  cube: {fileID: 2836483454025074049, guid: 1def2d5b4b485874e93ce30b1c2005fb, type: 3}
+  Wall: {fileID: 8549411582187396515, guid: b3281900df7399d4d984dde0d57d3979, type: 3}
   fieldObj: []
   Width: 50
   Depth: 50

@@ -6,7 +6,7 @@ public class TowerManager : MonoBehaviour
 {
     JsonRequest request;
     [SerializeField]
-    AriaHit serchEnemy;
+    TowerEnemyHit serchEnemy;
     Thief thiefManager;
     public int STR { get; set; }
     public string Name { get; set; }
@@ -23,13 +23,13 @@ public class TowerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (serchEnemy.Find)
+        if (serchEnemy.Find)//敵を見つけたとき
         {
-            if (!one)
+            if (serchEnemy.TargetObj != null)//敵がタワー内のサークル内に感知しているとき
             {
-                one = true;
                 thiefManager = serchEnemy.TargetObj.GetComponent<Thief>();
             }
+         
             timer += Time.deltaTime;
             if (timer >= AS)
             {
@@ -38,10 +38,7 @@ public class TowerManager : MonoBehaviour
             }
           
         }
-        else if (!serchEnemy.Find)
-        {
-            one = false;
-        }
+      
     }
     IEnumerator UpdateStatus()//jsonの値を変数に入れなおす
     {

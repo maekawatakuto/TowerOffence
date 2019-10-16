@@ -6,11 +6,14 @@ public class CreateField : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
+    private GameObject field;
+    [SerializeField]
     private GameObject TowerPrefav;
     [SerializeField]
     private GameObject SoldierPrefav;
     [SerializeField]
-    private GameObject cube;
+    private GameObject Wall;
+  
     public List<GameObject> fieldObj;
     public GameObject[,] CSVarray;//csvの形でデータ格納
     [SerializeField]
@@ -31,9 +34,9 @@ public class CreateField : MonoBehaviour
         {
             for (int j = 0; j < Width; j++)
             {
-                GameObject obj = Instantiate(cube, new Vector3(i, 0, j), Quaternion.identity);
+                GameObject obj = Instantiate(field, new Vector3(i, 0, j), Quaternion.identity);
                 CSVarray[i, j] = obj;
-                fieldObj.Add(Instantiate(obj));
+                fieldObj.Add(Instantiate(obj));//listへいれてカウントという名前に変えてこのオブジェクトの子にしている
                 string strcount = count.ToString();
                 fieldObj[count].name = strcount;
                 fieldObj[count].transform.parent = transform;
@@ -60,6 +63,10 @@ public class CreateField : MonoBehaviour
                 if(csv.csvDatas[i][j]=="2")//2だった場合兵士を配置
                 {
                     GameObject obj = Instantiate(SoldierPrefav, CSVarray[i, j].transform.position, Quaternion.identity);
+                }
+                if (csv.csvDatas[i][j] == "3")//3だった場合壁を配置
+                {
+                    GameObject obj = Instantiate(Wall, CSVarray[i, j].transform.position, Quaternion.identity);
                 }
             }
         }

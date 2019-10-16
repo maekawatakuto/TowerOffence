@@ -9,7 +9,7 @@ public class LazerScript : MonoBehaviour
     
     private LineRenderer lineRenderer;
     [SerializeField]
-    private AriaHit serchEnemy;
+    private TowerEnemyHit serchEnemy;
     
     private float targetPosition;
     Vector3 Offset;
