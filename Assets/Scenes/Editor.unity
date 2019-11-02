@@ -353,7 +353,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fieldCreate: {fileID: 267775325}
-  Target: {fileID: 0}
   offset: {x: 0, y: 4.03, z: 0}
   distance: 4
   polarAngle: 45
@@ -365,4 +364,5 @@ MonoBehaviour:
   mouseXSensitivity: 5
   mouseYSensitivity: 5
   scrollSensitivity: 5
-  center: 0
+  targetColor: {r: 1, g: 0.4481132, b: 0.4481132, a: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}

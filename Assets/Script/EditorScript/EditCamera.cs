@@ -9,7 +9,18 @@ public class EditCamera : MonoBehaviour
 
     [SerializeField]
     FieldCreate fieldCreate;
-    public GameObject Target;
+    private GameObject target;
+    public GameObject Target
+    {    set
+        {
+            target = value;
+            updateColor(Target, fieldCreate.FieldObject, targetColor, defaultColor, fieldCreate.MaxDepth, fieldCreate.MaxWidth);
+        }
+
+        get{
+            return target;
+        }
+    }
     public Vector3 offset; // offset form the target object
     
     [SerializeField] private float distance = 4.0f; // distance from following object
@@ -24,81 +35,58 @@ public class EditCamera : MonoBehaviour
     [SerializeField] private float mouseYSensitivity = 5.0f;
     [SerializeField] private float scrollSensitivity = 5.0f;
     private bool lotation_flag = false;
-    public int center;
+
     string Name;
-   
+    int width;
+    int depth;
     private int save_date;
+    [SerializeField]//選択されたobjの色
+    private Color targetColor;
+    [SerializeField]
+    private Color defaultColor;
     private void Start()
     {
-        center = 0;
-         Name = center.ToString();
-        Target = GameObject.Find(Name);
+        width = 0;
+        depth = 0;
+
     }
 
     void LateUpdate()
     {
         if (Input.GetKey(KeyCode.D))//右にターゲット移動
         {
-         
-            if (center < 50* 50 - 1)//フィールドの上限を超えていない場合
+            if (width < fieldCreate.MaxWidth-1)
             {
-                center += 1;
-                for (int i = 1; i <= center; i++)
-                {
-                    if (i * 50- 1 ==center)//端までcenterが移動した場合それ以上さきにいけないようにする
-                    {
-                        center -= 1;
-                    }
-                }
+                width += 1;
             }
-
-            Name = center.ToString();
-            Target = GameObject.Find(Name);
-          
-                 
         }
        
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))//左
         {
-            
-             center -= 1;
-            if (center == 0)//centerが左端に行った場合いけなくする
+            if (width > 0)
             {
-                center += 1;
+                width -= 1;
             }
-           
-            Name = center.ToString();
-            Target = GameObject.Find(Name);
-          
-         
+      
         }
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))//上
         {
-
-            if (center >50)//上にターゲット移動
+            if (depth > 0)
             {
-                center -=50;
-
+                depth -= 1;
             }
-            Name = center.ToString();
-            Target = GameObject.Find(Name);
-          
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))//下
         {
-
-            
-            if (center < (50 - 1) * 50)
+            if (depth < fieldCreate.MaxDepth-1)
             {
+                depth += 1;
 
-                center +=50;
-                
             }
-            Name = center.ToString();
-            Target = GameObject.Find(Name);
-          
+     
         }
-        
+        Debug.Log(fieldCreate.MaxWidth);
+        Debug.Log(fieldCreate.MaxDepth);
       
         if (Input.GetMouseButton(1))
         {
@@ -106,13 +94,13 @@ public class EditCamera : MonoBehaviour
                 updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
             
         }
-
+        Target = fieldCreate.FieldObject[depth,width];
         updateDistance(Input.GetAxis("Mouse ScrollWheel"));
         var lookAtPos = Target.transform.position + offset;
         updatePosition(lookAtPos);
         transform.LookAt(lookAtPos);
-    
-}
+        //updateColor(Target, fieldCreate.FieldObject, targetColor, defaultColor, fieldCreate.MaxDepth, fieldCreate.MaxWidth);
+    }
 
     void updateAngle(float x, float y)//回転処理
     {
@@ -158,5 +146,18 @@ public class EditCamera : MonoBehaviour
         }
 
     }
+    private void updateColor(GameObject obj,GameObject[,]fieldobj,Color targetColor,Color defaultColor,int maxWidth,int maxDepth)
+    {
+        
+        for(int i = 0; i < maxWidth; i++)
+        {
+            for(int j = 0; j < maxDepth; j++)
+            {
+              fieldobj[i, j].GetComponent<Renderer>().material.color=defaultColor;
+            }
+        }
+        obj.GetComponent<Renderer>().material.color = targetColor;
+    }
+    
 
 }
