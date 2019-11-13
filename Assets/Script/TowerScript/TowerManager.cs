@@ -13,6 +13,7 @@ public class TowerManager : MonoBehaviour
     public float AS { get; set;}
     bool one;//一度だけ実行
     float timer;//攻撃するタイミング
+    
     void Start()
     {
         one = false;

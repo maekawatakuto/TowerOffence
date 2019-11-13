@@ -66,9 +66,12 @@
     <Compile Include="Assets\Script\Base\BaseHit.cs" />
     <Compile Include="Assets\Script\Camera\CameraControl.cs" />
     <Compile Include="Assets\Script\Camera\CameraDirection.cs" />
+    <Compile Include="Assets\Script\CSV\CsvExport.cs" />
     <Compile Include="Assets\Script\CSV\CSVRequest.cs" />
     <Compile Include="Assets\Script\EditorScript\EditCamera.cs" />
     <Compile Include="Assets\Script\EditorScript\FieldCreate.cs" />
+    <Compile Include="Assets\Script\EditorScript\Obj\Enemydata.cs" />
+    <Compile Include="Assets\Script\EditorScript\Obj\Towerdata.cs" />
     <Compile Include="Assets\Script\Field\CreateField.cs" />
     <Compile Include="Assets\Script\Field\SelectPut.cs" />
     <Compile Include="Assets\Script\Field\StageSelectScript.cs" />
@@ -89,6 +92,8 @@
     <Compile Include="Assets\Script\TowerScript\StatusReference.cs" />
     <Compile Include="Assets\Script\TowerScript\TowerEnemyHit.cs" />
     <Compile Include="Assets\Script\TowerScript\TowerManager.cs" />
+    <Compile Include="Assets\Script\UI\BotanManager.cs" />
+    <Compile Include="Assets\Script\UI\InstantiateObj.cs" />
     <Compile Include="Assets\Script\UI\StockScript.cs" />
     <Compile Include="Assets\Script\UI\TIMERscript.cs" />
     <Compile Include="Assets\Script\UI\UIManager.cs" />

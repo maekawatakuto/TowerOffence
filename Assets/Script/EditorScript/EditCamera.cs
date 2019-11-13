@@ -9,6 +9,7 @@ public class EditCamera : MonoBehaviour
 
     [SerializeField]
     FieldCreate fieldCreate;
+  
     private GameObject target;
     public GameObject Target
     {    set
@@ -37,8 +38,8 @@ public class EditCamera : MonoBehaviour
     private bool lotation_flag = false;
 
     string Name;
-    int width;
-    int depth;
+    public int width { get;  set; }
+    public int depth { get; set; }
     private int save_date;
     [SerializeField]//選択されたobjの色
     private Color targetColor;
@@ -51,8 +52,10 @@ public class EditCamera : MonoBehaviour
 
     }
 
-    void LateUpdate()
+    void Update()
     {
+       
+        
         if (Input.GetKey(KeyCode.D))//右にターゲット移動
         {
             if (width < fieldCreate.MaxWidth-1)
@@ -85,9 +88,7 @@ public class EditCamera : MonoBehaviour
             }
      
         }
-        Debug.Log(fieldCreate.MaxWidth);
-        Debug.Log(fieldCreate.MaxDepth);
-      
+  
         if (Input.GetMouseButton(1))
         {
            

@@ -50,6 +50,7 @@ public class CSVRequest : MonoBehaviour
         {
             string line = reader.ReadLine(); // 一行ずつ読み込み
             csvDatas.Add(line.Split(',')); // , 区切りでリストに追加
+            Debug.Log(csvDatas);
         }
 
     }
